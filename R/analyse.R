@@ -9,9 +9,6 @@ cat("\014")
 library(tidyverse)
 library(fpp3)
 
-# Set working directory
-setwd("~/Documents/r/luxaptprice/")
-
 # Load data
 df <- readRDS(file.path("data", "df.rds"))
 

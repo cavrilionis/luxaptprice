@@ -9,9 +9,6 @@ cat("\014")
 library(tidyverse)
 library(readxl)
 
-# Set working directory
-setwd("~/Documents/r/luxaptprice/")
-
 files <- as_tibble(list.files(path = "./data", pattern = "\\d{4}\\.xls$")) %>% 
   rename(file = value)
 

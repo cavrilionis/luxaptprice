@@ -12,9 +12,6 @@ library(httr)
 library(jsonlite)
 library(urltools)
 
-# Set working directory
-setwd("~/Documents/r/luxaptprice/")
-
 # Download all files from a given data set on data.public.lu
 # It takes as input the ID of a data set and stores the resulting files on the local filesystem.
 
