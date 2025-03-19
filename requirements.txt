@@ -1,0 +1,11 @@
+tidyverse
+readxl
+tibble
+httr
+jsonlite
+urltools
+tsibble
+tsibbledata
+fable
+fabletools
+feasts
