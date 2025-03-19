@@ -13,17 +13,18 @@ library(jsonlite)
 library(urltools)
 
 # Download all files from a given data set on data.public.lu
-# It takes as input the ID of a data set and stores the resulting files on the local filesystem.
+# It takes as input the ID of a data set and stores the resulting files
+# on the local filesystem.
 
 # Please fill in here the id of the data set you want to get
 # The id of the data set can be found at the end of the URL of the data set
 
 dataset <- "prix-de-vente-des-appartements-par-commune"
 
-API <- "https://data.public.lu/api/1"
+api <- "https://data.public.lu/api/1"
 
 # Get all metadata from the data set
-url <- paste0(API, "/datasets/", dataset, "/")
+url <- paste0(api, "/datasets/", dataset, "/")
 r <- GET(url)
 stop_for_status(r)
 
@@ -45,11 +46,11 @@ if (!is.null(resources) && length(resources) > 0) {
     print(paste("Downloading:", resource$title))
     s <- GET(resource$url)
     stop_for_status(s)
-    
+
     # Extract filename from URL
     parsed_url <- url_parse(resource$url)
     filename <- basename(parsed_url$path)
-    
+
     # Download and save the file
     writeBin(content(s, "raw"), con = file.path("data", filename))
     print("Downloaded!")

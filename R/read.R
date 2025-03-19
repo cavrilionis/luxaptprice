@@ -9,7 +9,7 @@ cat("\014")
 library(tidyverse)
 library(readxl)
 
-files <- as_tibble(list.files(path = "./data", pattern = "\\d{4}\\.xls$")) %>% 
+files <- as_tibble(list.files(path = "./data", pattern = "\\d{4}\\.xls$")) %>%
   rename(file = value)
 
 ranges <- read_csv(file.path("data", "ranges.csv"), show_col_types = FALSE)
@@ -37,13 +37,14 @@ for (i in seq_len(nrow(files))) {
     trim_ws = TRUE,
     skip = 0,
     progress = readxl_progress(),
-    .name_repair = "unique")
-  
-  df_temp <- df_temp %>% 
-    mutate(Annee = substr(files[i, 1][[1, 1]], 50, 53)) %>% 
-    relocate(Annee) %>% 
+    .name_repair = "unique"
+  )
+
+  df_temp <- df_temp %>%
+    mutate(Annee = substr(files[i, 1][[1, 1]], 50, 53)) %>%
+    relocate(Annee) %>%
     select(-Fourchette_prix_appart_construits, -Fourchette_prix_VEFA)
-  
+
   df <- bind_rows(df, df_temp)
 }
 

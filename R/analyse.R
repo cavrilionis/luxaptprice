@@ -11,4 +11,3 @@ library(fpp3)
 
 # Load data
 df <- readRDS(file.path("data", "df.rds"))
-
