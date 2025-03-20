@@ -7,7 +7,6 @@ cat("\014")
 
 # Import libraries
 library(tidyverse)
-library(tibble)
 library(httr)
 library(jsonlite)
 library(urltools)
@@ -19,9 +18,9 @@ library(urltools)
 # Please fill in here the id of the data set you want to get
 # The id of the data set can be found at the end of the URL of the data set
 
-dataset <- "prix-de-vente-des-appartements-par-commune"
-
 api <- "https://data.public.lu/api/1"
+
+dataset <- "prix-de-vente-des-appartements-par-commune"
 
 # Get all metadata from the data set
 url <- paste0(api, "/datasets/", dataset, "/")
