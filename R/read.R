@@ -48,6 +48,8 @@ for (i in seq_len(nrow(files))) {
   df <- bind_rows(df, df_temp)
 }
 
-View(df)
+df <- df %>%
+  mutate(Annee = as.integer(Annee)) %>%
+  arrange(Commune, Annee)
 
 saveRDS(df, file.path("data", "df.rds"))
